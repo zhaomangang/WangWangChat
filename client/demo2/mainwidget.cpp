@@ -97,6 +97,7 @@ void mainWidget::slotRecv()
         mess_type = 0;
     }
     else if (type == "message") {
+        qDebug()<<"line 100 收到消息";
         mess_type = 1;
         player->play();
     }

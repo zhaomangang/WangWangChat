@@ -39,6 +39,7 @@ void FriList::recvMessage(int sendid, QString data)
             return ;
         }
     }
+    qDebug()<<"line 42 收到消息";
     QString senduser = QString("%1").arg(sendid);
     for(int i=0;i<send_list.size();i++)
     {

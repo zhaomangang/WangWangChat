@@ -12,7 +12,7 @@ LandWidget::LandWidget(QWidget *parent) :
     ui(new Ui::LandWidget)
 {
     setWindowFlags(windowFlags()&~Qt::WindowMaximizeButtonHint);    // 禁止最大化按钮
-    setFixedSize(405,420);                     // 禁止拖动窗口大小
+    setFixedSize(445,508);                     // 禁止拖动窗口大小
     setWindowTitle("Chat_land");    //设置窗口标题
     ui->setupUi(this);
     ui->password->setEchoMode(QLineEdit::Password); //设置密码编辑框为隐藏模式

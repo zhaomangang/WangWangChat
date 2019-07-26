@@ -52,6 +52,7 @@ void ChatFri::setInfo(int id_, int frid_, QString user_, QString fri)
 void ChatFri::recvMessage(QString mess,int id_)
 {
     //ui->messBrowser->setAlignment(Qt::AlignRight);
+    qDebug()<<"line 55 收到消息";
     QString temp_user;
     //int us = 100001;
     qDebug()<<"shoudaoxiaoxi "<<id<<"     "<<id_;
@@ -138,6 +139,5 @@ void ChatFri::on_pushButton_2_clicked()
         path = QString("<img src=\"%1\"/>").arg(path);
         ui->messEdit->insertHtml(path);
     }
-
 
 }
