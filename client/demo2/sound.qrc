@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sound/Global.wav</file>
+    </qresource>
+</RCC>
