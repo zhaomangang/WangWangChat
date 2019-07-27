@@ -40,7 +40,12 @@ public:
     void addUse(int id,int con_fd);
     void delUse(int con_fd);
     int getFd(int id);  //根据id返回套接字
+    user getUser(int i);
     Listen(const Listen & c);   //拷贝构造函数
+    int getCount()
+    {
+        return count;
+    }
 };
 
 

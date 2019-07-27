@@ -4,6 +4,7 @@ debug/frilist.o
 debug/landwidget.o
 debug/chatfri.o
 debug/register.o
+debug/serch.o
 debug/qrc_icon.o
 debug/qrc_face.o
 debug/qrc_sound.o
@@ -13,3 +14,4 @@ debug/moc_frilist.o
 debug/moc_landwidget.o
 debug/moc_chatfri.o
 debug/moc_register.o
+debug/moc_serch.o

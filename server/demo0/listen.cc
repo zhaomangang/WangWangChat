@@ -9,6 +9,12 @@ int Listen::count = 0;  //初始化连接数
 Listen::Listen(/* args */)
 {
     //初始化
+
+    for(int i=0;i<100;i++)
+    {
+        use[i].connect_fd = -1;
+        use[i].id =-1;
+    }
     listen_sock = socket(AF_INET,SOCK_STREAM,0);    //监听本地所有端口
     local_addr.sin_family = AF_INET;
     local_addr.sin_addr.s_addr = INADDR_ANY;
@@ -73,7 +79,6 @@ Listen::Listen(/* args */)
         }
 
     }
-
     //初始化数据库
     //initData();
 }
@@ -192,6 +197,9 @@ void Listen::judgementInfo(char info[1024],int connect_fd)
     else if(0==strcmp(type,"register"))
     {
         temp_type = 4;
+    }else if(0==strcmp(type,"groupmessage"))
+    {
+        temp_type = 5;
     }
     //cout<<"judge"<<endl;
     int id_temp=0;
@@ -217,6 +225,10 @@ void Listen::judgementInfo(char info[1024],int connect_fd)
     case 4:
         registerDeal(info,connect_fd);
         break;
+    case 5:
+        groupMessageDeal(info,connect_fd,*this);
+        break;
+
     default:
        
         break;
@@ -224,7 +236,10 @@ void Listen::judgementInfo(char info[1024],int connect_fd)
     //login User Password
     //return false;      
 }
-
+user Listen::getUser(int i)
+{
+    return use[i];
+}
 void Listen::addUse(int id,int con_fd)
 {
     this->use[count].id = id;

@@ -169,6 +169,77 @@ void messageDeal(char info[1024],int connect_fd,Listen lis)
 
 }
 
+void groupMessageDeal(char info[1024],int connect_fd,Listen lis)
+{
+    //处理消息
+    char sendid[10] = {0};
+    char recv[10] = {0};
+    char data[1024] = {0};
+    char temp[1024] = "groupmessage ";
+    int i = 0;
+    for(i=0;i<strlen(info);i++)
+    {
+        if(info[i] == ' ')
+        {
+            i++;
+            break;
+        } 
+    }
+    for(int j = 0;i<strlen(info);i++,j++)
+    {
+        if(info[i] == ' ')
+        {
+            i++;
+            break;
+        }
+        sendid[j] = info[i]; 
+    }
+    for(int j = 0;i<strlen(info);i++,j++)
+    {
+        if(info[i] == ' ')
+        {
+            i++;
+            break;
+        }
+        recv[j] = info[i]; 
+    }
+    for(int j = 0;j<1024;i++,j++)
+    {
+        data[j] = info[i]; 
+    }
+    cout<<"data is: "<<data<<endl;
+    int j;
+    for(i=13,j=0;j<strlen(sendid);i++,j++)
+    {
+        temp[i] = sendid[j];
+    }
+    temp[i] = ' ';
+    i++;
+    for(j=0;i<1024;j++,i++)
+    {
+        temp[i] = data[j];
+    }
+//    int temp_id = atoi(recv);
+//    int temp_fd = lis.getFd(temp_id);
+    if(0==strcmp(recv,"7001"))
+    {
+        for(int k=0;k<lis.getCount();k++)
+        {
+            if(lis.getUser(k).id!=-1&&lis.getUser(k).connect_fd!=-1)
+            {
+                if(atoi(sendid)!=lis.getUser(k).id)
+                {
+                    send(lis.getUser(k).connect_fd,&temp,sizeof(temp),0);
+                    cout<<"发送群消息给 "<<lis.getUser(k).id<<"内容是: "<<data<<endl;
+                }
+                cout<<"line 235 "<<"群消息，当前用户"<<endl;
+
+            }
+        }
+
+    }
+}
+
 void registerDeal(char info[1024],int connect_fd)
 {
     //注册请求处理
@@ -272,7 +343,12 @@ void registerDeal(char info[1024],int connect_fd)
     }
     if(database.query_sql(sqltemp))
     {
+        sqltemp = "INSERT INTO `user`.`group` (`id`, `group_id`) VALUES ('";
+        sqltemp.append(id_str);
+        sqltemp.append("', '7001');");
+        database.query_sql(sqltemp);
         //写入成功
+
         cout<<"发送给客户端的是 "<<str<<endl;
         send(connect_fd,&str,sizeof(str),0);
         sqltemp = "INSERT INTO `user`.`friend` (`id_my`, `id_friend`) VALUES ('100001', '');";
