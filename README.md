@@ -22,20 +22,20 @@
 
 登陆界面：
 
-![1577110794905](C:\Users\98230\AppData\Roaming\Typora\typora-user-images\1577110794905.png)
+![1577110794905](E:\learn\comm\WangWangChat\效果图\1577110794905.png)
 
 注册界面：
 
-![1577110899465](C:\Users\98230\AppData\Roaming\Typora\typora-user-images\1577110899465.png)
+![1577110899465](E:\learn\comm\WangWangChat\效果图\1577110899465.png)
 
 主界面：
 
-![1577111020223](C:\Users\98230\AppData\Roaming\Typora\typora-user-images\1577111020223.png)
+![1577111020223](E:\learn\comm\WangWangChat\效果图\1577111020223.png)
 
 私聊：
 
-![1577111135330](C:\Users\98230\AppData\Roaming\Typora\typora-user-images\1577111135330.png)
+![1577111135330](E:\learn\comm\WangWangChat\效果图\1577111135330.png)
 
 群聊：
 
-![1577111380041](C:\Users\98230\AppData\Roaming\Typora\typora-user-images\1577111380041.png)
+![1577111380041](E:\learn\comm\WangWangChat\效果图\1577111380041.png)
