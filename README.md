@@ -18,24 +18,34 @@
 - 数据库： MySQL8.0
 - 数据交互协议：自定（具体见文档）
 
-### 效果展示
+### 开发日志
+
+##### 2019/7-2019/8
+
+实现了登录聊天等基础功能。服务端比较粗糙。
+
+2020/3-今
+
+打算进一步完善服务端及客户端
+
+### 客户端运行示例
 
 登陆界面：
 
-![1577110794905](https://github.com/zhaomangang/WangWangChat/tree/master/效果图/1577110794905.png)
+![1577110794905](http://47.99.95.58/file/githubWangWangChat/1577110794905.png)
 
 注册界面：
 
-![1577110899465](https://github.com/zhaomangang/WangWangChat/tree/master/效果图/1577110899465.png)
+![1577110899465](http://47.99.95.58/file/githubWangWangChat/1577110899465.png)
 
 主界面：
 
-![1577111020223](https://github.com/zhaomangang/WangWangChat/tree/master/效果图/1577111020223.png)
+![1577111020223](http://47.99.95.58/file/githubWangWangChat/1577111020223.png)
 
 私聊：
 
-![1577111135330](https://github.com/zhaomangang/WangWangChat/tree/master/效果图/1577111135330.png)
+![1577111135330](http://47.99.95.58/file/githubWangWangChat/1577111135330.png)
 
 群聊：
 
-![1577111380041](https://github.com/zhaomangang/WangWangChat/tree/master/效果图/1577111380041.png)
+![1577111380041](http://47.99.95.58/file/githubWangWangChat/1577111380041.png)
