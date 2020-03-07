@@ -31,6 +31,7 @@ private slots:
 
     void on_registeButton_clicked();
 
+
 private:
     Ui::LandWidget *ui;
     QTcpSocket *tcpSocket;

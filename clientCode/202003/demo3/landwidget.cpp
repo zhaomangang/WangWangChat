@@ -6,6 +6,7 @@
 #include <QJsonDocument>
 #include <QJsonParseError>
 #include <QJsonArray>
+#include <QFile>
 
 LandWidget::LandWidget(QWidget *parent) :
     QWidget(parent),
@@ -17,7 +18,23 @@ LandWidget::LandWidget(QWidget *parent) :
     setWindowTitle(QStringLiteral("登录"));    //设置窗口标题
 
     ui->password->setEchoMode(QLineEdit::Password); //设置密码编辑框为隐藏模式
+    //判断是否已记住账号密码，如果是填充输入框
+    QFile file(":/data.txt");
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QByteArray temp = file.readAll();
 
+    if(temp!=""){
+        QString data = temp;
+        int index_i = data.indexOf('_');
+        int index_p = data.indexOf(';');
+        QString id_re = data.mid(0,index_i);
+        QString p_re = data.mid(index_i+1,index_p-index_i-1);
+        qDebug()<<id_re<<" "<<p_re;
+        ui->id->setText(id_re);
+        ui->password->setText(p_re);
+
+    }
+    file.close();
 }
 
 void LandWidget::setTcpSocket(QTcpSocket *tcp)
@@ -113,6 +130,21 @@ void LandWidget::on_send_clicked()
             {
                 //当记住密码被选中时
 
+                QString data = QString("%1_%2;").arg(ui->id->text()).arg(ui->password->text());
+               // QByteArray temp = data.t;
+                QFile file("D:\code\WangWangChat\clientCode\202003\demo3\data.txt");
+                file.open(QIODevice::ReadWrite|QIODevice::Text);
+                QByteArray temp = file.readAll();
+                qDebug()<<"line 138"<<temp;
+                file.write(data.toStdString().c_str());
+                file.close();
+//                file.open(QIODevice::WriteOnly|QIODevice::Text);
+//                qDebug()<<"open success";
+//                file.write(data.toStdString().c_str());
+//                file.close();
+            }else{
+
+
             }
             tcpSocket->write(landPack(ui->id->text().toInt(),ui->password->text()).toUtf8().data());//将登陆信息打包发给服务器
             //emit landSuccess();
@@ -133,3 +165,5 @@ void LandWidget::on_registeButton_clicked()
     regi->show();
     regi->setSocket(this->tcpSocket);
 }
+
+

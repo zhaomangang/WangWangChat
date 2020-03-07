@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>config.txt</file>
+        <file>data.txt</file>
+    </qresource>
+</RCC>
