@@ -18,7 +18,7 @@
 
 数据库：通过建立用户基本信息user_info、好友关系friend、群组关系group、群组基本信息group_info四张表实现对用户信息的存储、组织。
 
-![1577110794905](http://47.99.95.58/file/githubWangWangChat/数据库组织.jpg)
+![数据库组织](http://47.99.95.58/file/githubWangWangChat/数据库组织.jpg)
 
 ### 开发日志
 
